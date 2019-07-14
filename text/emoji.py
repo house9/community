@@ -7,22 +7,25 @@ insert = actions.insert
 mod = Module()
 
 emojis = {
-    'thumbs up': ':+1:',
-    'okay hand': ':ok_hand',
-    'okay': ':ok_hand:',
-    'check': ':white_check_mark:',
-    'crossed fingers': ':crossed_fingers:',
-    'fingers': ':crossed_fingers:',
-    'pray': ':pray:',
+    "thumbs up": ":+1:",
+    "okay hand": ":ok_hand",
+    "okay": ":ok_hand:",
+    "check": ":white_check_mark:",
+    "crossed fingers": ":crossed_fingers:",
+    "fingers": ":crossed_fingers:",
+    "pray": ":pray:",
 }
+
 
 @mod.capture
 def emoji(m) -> str:
     """Common Slack emoji"""
 
+
 # FIXME: move this into the slack app script
 ctx = Context()
-ctx.on({'app.bundle': 'com.tinyspeck.slackmacgap'})
+ctx.on({"app.bundle": "com.tinyspeck.slackmacgap"})
+
 
 def react(m):
     emoji = m.emoji[0]
@@ -36,12 +39,14 @@ def react(m):
     except clip.NoChange:
         pass
 
+
 # TODO: use a mapping list instead?
-@ctx.capture(rule='|'.join(emojis.keys()))
+@ctx.capture(rule="|".join(emojis.keys()))
 def emoji(m):
-    return emojis[' '.join(m)]
+    return emojis[" ".join(m)]
+
 
 ctx.commands = {
-    'inline <self.emoji>': lambda m: insert(m.emoji[0]),
-    'react <self.emoji>': react, # lambda m: slack.react(m.emoji[0]),
+    "inline <self.emoji>": lambda m: insert(m.emoji[0]),
+    "react <self.emoji>": react,  # lambda m: slack.react(m.emoji[0]),
 }

@@ -41,7 +41,7 @@ def react(m):
 
 
 # TODO: use a mapping list instead?
-@ctx.capture(rule="|".join(emojis.keys()))
+@ctx.capture(rule="|".join(emojis.keys())) # noqa
 def emoji(m):
     return emojis[" ".join(m)]
 

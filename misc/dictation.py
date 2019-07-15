@@ -3,6 +3,7 @@ from talon import Context, actions
 ctx = Context()
 dictate = actions.dictate
 
+
 # wordwordword ...
 def smash(m):
     smash = ""

@@ -62,6 +62,7 @@ alt_teens = "(" + ("|".join(teens_map.keys())) + ")"
 alt_tens = "(" + ("|".join(tens_map.keys())) + ")"
 alt_scales = "(" + ("|".join(scales_map.keys())) + ")"
 
+
 # fuse scales (hundred, thousand) leftward onto numbers (one, twelve, twenty, etc)
 def fuse_scale(words, limit=None):
     ret = []

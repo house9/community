@@ -5,6 +5,7 @@ ctx = Context()
 # Mouse coordinates
 x, y = ctrl.mouse_pos()
 
+
 # Click!
 def backdated_click(m, button=0, times=1):
     ctrl.mouse_click(x, y, button=button, times=times, wait=16000)

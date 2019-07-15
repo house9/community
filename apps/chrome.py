@@ -34,7 +34,7 @@ class BrowserActions:
         win = ui.active_window()
         if win:
             url = win.children.find_one(AXRole="AXTextField").AXValue
-            if not "://" in url:
+            if not "://" in url:  # noqa: E713
                 if url.startswith("/"):
                     return "file://" + url
                 return "http://" + url

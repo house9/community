@@ -26,7 +26,7 @@ class MainActions:
             parts = [key]
             if len(key) > 1:
                 sep = "-"
-                if "+" in key and (not "-" in key or key.index("+") < key.index("-")):
+                if "+" in key and (not "-" in key or key.index("+") < key.index("-")):  # noqa: E713
                     sep = "+"
                 if sep == "-":
                     if key.endswith("--"):
@@ -39,7 +39,7 @@ class MainActions:
             kwargs = {}
             kwargs.update({k: True for k in metas})
             key = REMAP.get(key, key)
-            if not "wait" in kwargs:
+            if not "wait" in kwargs:  # noqa: E713
                 kwargs["wait"] = 1000
             ctrl.key_press(key, **kwargs)
 

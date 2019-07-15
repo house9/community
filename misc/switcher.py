@@ -42,7 +42,7 @@ def update_lists():
             continue
         words = app.name.lower().split(" ")
         for word in words:
-            if word and not word in new:
+            if word and not word in new:  # noqa: E713
                 new[word] = app.bundle
         new[app.name] = app.bundle
     ctx.lists["self.running"] = new

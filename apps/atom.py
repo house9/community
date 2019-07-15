@@ -55,7 +55,7 @@ class EditActions:
 
     def select_lines(a: int, b: int):
         a, b = min((a, b)), max((a, b))
-        edit.jump_line(n)
+        edit.jump_line(n)  # noqa: F821 (TODO: is this an actual defect?)
         for i in range(b):
             key("shift-down")
         key("cmd-shift-right")
@@ -224,7 +224,7 @@ class EditActions:
 
     def selected_text() -> str:
         key("shift-right")
-        with clip.capture() as s:
+        with clip.capture() as s:  # noqa: F821 (TODO: is this an actual defect?)
             key("cmd-c")
         key("shift-left")
         return s.get()[:-1]

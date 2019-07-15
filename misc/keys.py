@@ -1,3 +1,4 @@
+# flake8: noqa
 from typing import Set
 
 from talon import Module, Context, actions
@@ -149,37 +150,37 @@ ctx.lists["self.special"] = keys
 
 
 @ctx.capture(rule="{self.modifier}+")
-def modifiers(m):
+def modifiers(m): # noqa: F811
     return set(m.modifier)
 
 
 @ctx.capture(rule="{self.arrow}")
-def arrow(m) -> str:
+def arrow(m) -> str: # noqa: F811
     return m.arrow
 
 
 @ctx.capture(rule="{self.number}")
-def number(m):
+def number(m): # noqa: F811
     return m.number
 
 
 @ctx.capture(rule="{self.letter}")
-def letter(m):
+def letter(m): # noqa: F811
     return m.letter
 
 
 @ctx.capture(rule="{self.special}")
-def special(m):
+def special(m): # noqa: F811
     return m.special
 
 
 @ctx.capture(rule="{self.symbol}")
-def symbol(m):
+def symbol(m): # noqa: F811
     return m.symbol
 
 
 @ctx.capture(rule="(<self.arrow> | <self.number> | <self.letter> | <self.special>)")
-def any(m) -> str:
+def any(m) -> str: # noqa: F811
     for name in ("arrow", "number", "letter", "special"):
         value = m.get(name)
         if value is not None:
@@ -188,7 +189,7 @@ def any(m) -> str:
 
 
 @ctx.capture(rule="[<self.modifiers>] <self.any>")
-def key(m) -> str:
+def key(m) -> str: # noqa: F811
     key = m.any
     mods = m.get("modifiers", None)
     if mods:
